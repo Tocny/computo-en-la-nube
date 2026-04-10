@@ -39,6 +39,9 @@ curl -X DELETE https://localhost:8002/rest/eliminar/1
 cd eureka-server
 mvn spring-boot:run
 ```
+Se pueden consultar los microservicios que usan el manager en: http://localhost:8761/
+
+### Levantar el Servicio de autos:
 ```bash
 cd servicio-autos
 mvn spring-boot:run
@@ -46,7 +49,7 @@ mvn spring-boot:run
 Después pueden consultarse las urls:
 - http://localhost:8001/listar
 - http://localhost:8001/ver/2
-### Para el servicio de items:
+### Levantar el servicio de items:
 Ojo: Servicio-autos debe de estar levantado para que este servicio se comunique con él.
 ```bash
 cd servicio-items
