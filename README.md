@@ -107,3 +107,26 @@ mvn spring-boot:run
 ```
 
 
+# Tarea 5: Implementación de métodos CRUD, pruebas JUnit, y vista.
+
+### Levantar el Eureka Server:
+```bash
+cd eureka-server
+mvn spring-boot:run
+```
+Se pueden consultar los microservicios que usan el manager en: http://localhost:8761/
+
+### Levantar el Servicio de autos:
+```bash
+cd servicio-autos
+mvn spring-boot:run
+```
+Pueden usarse las funciones CRUD en la url: http://localhost:8001/
+
+Y pueden correrse las pruebas unitarias mediante:
+```bash
+cd servicio-autos
+mvn test
+```
+
+
