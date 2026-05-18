@@ -1,0 +1,52 @@
+# Configuración del servidor Zuul.
+
+# Puerto en el que se ejecuta el servidor.
+server:
+  port: 8090
+
+#Registro en Spring (nombre que usará Eureka)
+spring:
+  application:
+    name: zuul-server                    
+
+# Configuración con Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka 
+
+# Rutas de Zuul.
+zuul:
+  ignored-patterns: /api/proxy/**
+  routes:
+    # Ruta principal hacia el microservicio de autos
+    servicio-autos:
+      path: /servicio-autos/**            # URL 
+      serviceId: servicio-autos           # Servicio
+      stripPrefix: true                   
+    
+    # Ruta adicional hacia el mismo microservicio (ruteo dinamico)
+    servicio-autos2:
+      path: /api/autos/**                 # URL alternativa
+      serviceId: servicio-autos           # Mismo servicio
+      stripPrefix: true                  
+    
+    # Ruta hacia el microservicio de items
+    servicio-items:
+      path: /servicio-items/**            
+      serviceId: servicio-items           
+      stripPrefix: true                   
+
+#Configuración del timeout de Hystrix
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000  
+
+#Condiguración de Ribbon (balanceo de carga)
+ribbon:
+  ReadTimeout: 1000                      
+  ConnectTimeout: 1000                    

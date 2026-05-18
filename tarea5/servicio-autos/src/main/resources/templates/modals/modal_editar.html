@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!-- Modal de edición de vehículo -->
+    <div th:fragment="modalEditar" id="modalEditar" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="cerrarModal()"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 mx-4 transform transition-all">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">✏️ Editar auto</h3>
+            <input type="hidden" id="editId">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Marca</label>
+                    <input type="text" id="editMarca" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Modelo</label>
+                    <input type="text" id="editModelo" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Año</label>
+                    <input type="text" id="editAnio" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Precio (MXN)</label>
+                    <input type="number" step="0.01" id="editPrecio" class="mt-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400">
+                </div>
+            </div>
+            <div class="flex justify-end gap-3 mt-6">
+                <button onclick="cerrarModal()" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg transition">Cancelar</button>
+                <button onclick="guardarEdicion()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition">Guardar cambios</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
